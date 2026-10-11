@@ -70,10 +70,7 @@ button {
   box-shadow: 0 4px 10px rgba(203, 112, 173, 0.3);
 }
 
-button:hover {
-  background: linear-gradient(90deg, #df6ba5, #ad6fce);
-  transform: scale(1.02);
-}
+
 
 section {
   margin-top: 26px;
