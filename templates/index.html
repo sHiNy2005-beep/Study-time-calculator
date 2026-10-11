@@ -6,10 +6,11 @@
   <title>Study Time Calculator</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
   <main>
-    <h1>Study Time Calculator</h1>
-    <p>Enter your study time and I will make a simple plan.</p>
+    <h1> Study Time Calculator </h1>
+    <p class="intro">Enter how many hours you want to study and the number of breaks you want to take.</p>
 
     <form method="POST">
       <label for="hours">Hours you want to study:</label>
@@ -21,22 +22,28 @@
       <button type="submit">Make My Plan</button>
     </form>
 
-    
+    {% if error %}
       <p class="error">{{ error }}</p>
-    
+    {% endif %}
 
-    
+    {% if result %}
       <section>
         <h2>Your Study Plan</h2>
-        <p>Total study session: <strong>{{ result.total_minutes }} minutes</strong></p>
 
-          <p>You chose no breaks. Try to take a short break if you study for a long time!</p>
-          <p>Take <strong>{{ result.break_minutes }}-minute breaks</strong>.</p>
+        <p>Total study time: <strong>{{ result.total_minutes }} minutes</strong></p>
+
+        {% if result.breaks == 0 %}
+          <p>You chose no breaks. Make sure to rest if you study for a long time!</p>
+        {% else %}
+          <p>You chose <strong>{{ result.breaks }} breaks</strong>.</p>
+          <p>Take a <strong>10-minute break</strong> between each study block.</p>
           <p>
             Study in <strong>{{ result.study_blocks }} blocks</strong> of about
             <strong>{{ result.minutes_per_block }} minutes</strong> each.
           </p>
+        {% endif %}
       </section>
+    {% endif %}
   </main>
 </body>
 </html>

@@ -11,7 +11,7 @@ main {
   max-width: 500px;
   margin: 50px auto;
   padding: 32px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   border: 2px solid #f8a9d0;
   border-radius: 24px;
   box-shadow: 0 8px 25px rgba(204, 107, 164, 0.25);
@@ -24,8 +24,8 @@ h1 {
   margin-bottom: 8px;
 }
 
-p {
-  line-height: 1.5;
+.intro {
+  text-align: center;
 }
 
 label,
@@ -67,10 +67,12 @@ button {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(203, 112, 173, 0.3);
 }
 
-
+button:hover {
+  background: linear-gradient(90deg, #df6ba5, #ad6fce);
+  transform: scale(1.02);
+}
 
 section {
   margin-top: 26px;

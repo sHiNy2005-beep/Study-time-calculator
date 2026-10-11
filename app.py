@@ -18,18 +18,17 @@ def index():
 
             total_minutes = round(hours * 60)
             study_blocks = breaks + 1
-            break_minutes = 0 if breaks == 0 else 10
-            focus_minutes = total_minutes - (breaks * break_minutes)
-            minutes_per_block = focus_minutes // study_blocks
+            minutes_per_block = total_minutes // study_blocks
 
             result = {
                 "total_minutes": total_minutes,
-                "break_minutes": break_minutes,
-                "minutes_per_block": minutes_per_block,
                 "study_blocks": study_blocks,
+                "breaks": breaks,
+                "minutes_per_block": minutes_per_block
             }
+
         except (ValueError, KeyError):
-            error = "Please enter a positive number of hours and 0 or more breaks."
+            error = "Please enter positive study hours and 0 or more breaks."
 
     return render_template("index.html", result=result, error=error)
 
