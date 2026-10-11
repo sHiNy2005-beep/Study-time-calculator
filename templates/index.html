@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Time Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>Study Time Calculator</h1>
+    <p>Enter your study time and I will make a simple plan.</p>
+
+    <form method="POST">
+      <label for="hours">Hours you want to study:</label>
+      <input type="number" id="hours" name="hours" step="0.5" min="0.5" required>
+
+      <label for="breaks">Number of breaks:</label>
+      <input type="number" id="breaks" name="breaks" min="0" required>
+
+      <button type="submit">Make My Plan</button>
+    </form>
+
+    
+      <p class="error">{{ error }}</p>
+    
+
+    
+      <section>
+        <h2>Your Study Plan</h2>
+        <p>Total study session: <strong>{{ result.total_minutes }} minutes</strong></p>
+
+          <p>You chose no breaks. Try to take a short break if you study for a long time!</p>
+          <p>Take <strong>{{ result.break_minutes }}-minute breaks</strong>.</p>
+          <p>
+            Study in <strong>{{ result.study_blocks }} blocks</strong> of about
+            <strong>{{ result.minutes_per_block }} minutes</strong> each.
+          </p>
+      </section>
+  </main>
+</body>
+</html>
